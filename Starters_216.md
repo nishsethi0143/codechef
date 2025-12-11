@@ -2,6 +2,8 @@
 
 ## Thrilled to share the results from the Starters 216 on CodeChef today. It was a great test of Number Theory and fast debugging. Managed to solve 4️⃣ out of 6️⃣ problems in the allotted time.
 
+## Link of the questions ➡️ [Codechef](https://www.codechef.com/START216)
+
 ### #P1 ➡️ Best Seats
 
 #### Question being very straightforward asked for 2 adjacent seats for Chef and Chefina at the minimum cost. So we just have to find the minimum of 2 adjacent elements of the given array of seats.
@@ -27,8 +29,8 @@ int32_t main(){
     }
 }
 ```
-#### Time Complexity :- O(n)
-#### Space Complexity :- O(n)
+#### Time Complexity :- $O(N)$
+#### Space Complexity :- $O(N)$
 
 ### #P2 ➡️ LIS and LDS
 
@@ -61,8 +63,8 @@ int32_t main(){
     return 0;
 }
 ```
-#### Time Complexity :- O(n)
-#### Space Complexity :- O(1)
+#### Time Complexity :- $O(N)$
+#### Space Complexity :- $O(1)$
 
 ### #P3 ➡️ XOR Equal Subtract
 
@@ -113,8 +115,8 @@ int32_t main(){
 }
 ```
 
-#### Time Complexity :- O(N^2)
-#### Space Complexity :- O(N)
+#### Time Complexity :- $O(N^2)$
+#### Space Complexity :- $O(N)$
 
  ## If Anyone is able to get is O(NlogN) Time Complexity Then it will be a gentle request to share your solution with us!!
 
@@ -122,7 +124,10 @@ int32_t main(){
 ### #P4 ➡️ Minimum Same Difference
 
 #### This counting problem asks for the sum of $f(A)$ over all $K^N$ arrays, where $f(A)$ is the minimum distance between any two equal elements.The core idea is to use complementary counting: calculate the total sum by summing over $d = 1$ to $N-1$, where we count the number of arrays $A$ such that $f(A) \ge d$.
-####  
+####  Core Principle: It uses complementary counting based on the identity: $\sum f(A) = \sum_{d=1}^{N-1} \text{Count}(\text{arrays where } f(A) \ge d)$.
+#### Pre-calculation (c): The variable c computes the number of arrays where all elements are distinct ($P(K, N)$ or $\frac{K!}{(K-N)!}$), which is equivalent to $\text{Count}(f(A) \ge N)$.
+#### Main Loop: The loop iterates for the minimum difference $d$ from 1 up to $\min(N, K)$. In each step, it calculates $\text{Count}(f(A) \ge d)$ using dynamic programming/combinatorial logic, which involves placing $d-1$ or $d$ distinct values followed by $N-d+1$ positions that can be filled by $K-d+1$ values, utilizing the $\mathbf{O(\log N)}$ power function for exponentiation.
+#### Final Sum: It finds the count of arrays where $f(A)=d$ by subtracting the count of $f(A) \ge d+1$ from $f(A) \ge d$, and sums these exact counts to get the final answer modulo $998244353$.
 ```
 #include<bits/stdc++.h>
 using namespace std;
@@ -172,7 +177,7 @@ int32_t main(){
 }
 ```
 
-#### Time Complexity :- O(NlogN)
-#### Space Complexity :- O(1)
+#### Time Complexity :- $O(NlogN)$
+#### Space Complexity :- $O(1)$
 
 ## Just concluding here my post-contest work and thank to all those who saw my work and appreciation to all those who are also willing to share theirs. Just enjoy Coding!!!😀😀
